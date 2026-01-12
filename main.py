@@ -225,6 +225,11 @@ async def login(user: UserLogin):
         }
     raise HTTPException(status_code=401, detail="Invalid credentials")
 
+
+@app.get("/")
+def home():
+    return {"message": "Batter Shop API is running 🚀"}
+    
 @app.get("/api/products")
 async def get_products():
     return [
@@ -303,3 +308,4 @@ async def update_user_address(data: AddressUpdate):
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
