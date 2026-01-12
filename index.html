@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesha | Premium South Indian Traditional Food</title>
+    <meta name="description"
+        content="Experience the authentic taste of South India with Hesha's premium batter and traditional food products. Fresh, natural, and homemade.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .rotating-text-wrapper {
+            display: inline-flex;
+            flex-direction: column;
+            height: 1.5em;
+            overflow: hidden;
+            vertical-align: bottom;
+            position: relative;
+            min-width: 200px;
+            text-align: left;
+            margin-left: 8px;
+        }
+
+        .rotating-text-wrapper span {
+            display: block;
+            height: 100%;
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            opacity: 0;
+            transform: translateY(100%) scale(0.9);
+            filter: blur(10px);
+            transition: all 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+            position: absolute;
+            left: 0;
+            top: 0;
+            white-space: nowrap;
+        }
+
+        .rotating-text-wrapper span.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+            position: relative;
+        }
+
+        .rotating-text-wrapper span.exit {
+            opacity: 0;
+            transform: translateY(-100%) scale(1.1);
+            filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+            .rotating-text-wrapper {
+                min-width: 160px;
+                margin-left: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header id="main-header">
+        <div class="container nav-content">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">HESHA</a></div>
+            <nav class="nav-links">
+                <a href="about.html">About</a>
+                <a href="index.html#products">Products</a>
+                <a href="recipes.html">Recipes</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-icons">
+                <a href="javascript:void(0)" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="login.html"><i class="fa-solid fa-user"></i></a>
+                <a href="javascript:void(0)" id="wishlist-btn">
+                    <i class="fa-solid fa-heart"></i>
+                    <span id="wishlist-count" class="cart-count-badge">0</span>
+                </a>
+                <a href="javascript:void(0)" id="cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count" class="cart-count-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div style="display: flex; align-items: center; gap: 4rem;">
+                    <div class="hero-content">
+                        <h1>Fresh Tradition, <br><span>Perfectly Crafted.</span></h1>
+                        <p>Elevate Your Kitchen With The Authentic Taste Of Premium South Indian Batter. Natural, Fresh,
+                            And Delivered With Care Since 2025.</p>
+                        <div class="hero-btns">
+                            <a href="#products" class="btn btn-primary">Start Shopping</a>
+                            <a href="recipes.html" class="btn btn-secondary">View Recipes</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-slider floating">
+                            <div class="slide active">
+                                <img src="idli.png" alt="Pure Idli Batter">
+                            </div>
+                            <div class="slide">
+                                <img src="dosa.png" alt="Crispy Dosa">
+                            </div>
+                            <div class="slide">
+                                <img src="rava_idli.png" alt="Rava Idli">
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" data-slide="0"></div>
+                            <div class="slider-dot" data-slide="1"></div>
+                            <div class="slider-dot" data-slide="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Bar -->
+        <section class="value-bar">
+            <div class="container">
+                <div class="value-items">
+                    <div class="value-item">
+                        <h3>100%</h3>
+                        <p>Natural Ingredients</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>10k+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Start Up</h3>
+                        <p>New Legacy</p>
+                    </div>
+                    <div class="value-item">
+                        <h3>Fresh</h3>
+                        <p>Home Made</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our <span>Products</span></h2>
+                    <p>Traditional taste, modern convenience.</p>
+                </div>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <span class="wishlist-heart-btn"
+                                onclick="toggleWishlist('Idli & Dosa Batter', 50.00, 'Front.png')">
+                                <i class="fa-regular fa-heart"></i>
+                            </span>
+                            <img src="Front.png" class="front-img" alt="Idli Batter Front">
+                            <img src="Back.png" class="back-img" alt="Idli Batter Back">
+                        </div>
+                        <div class="product-info">
+                            <h3>Idli & Dosa Batter</h3>
+                            <span class="price">₹50.00</span>
+                            <button class="btn btn-primary"
+                                onclick="addToCart('Idli & Dosa Batter', 50.00, 'Front.jpeg')">Add Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How We <span class="rotating-text-wrapper">
+                            <span class="active">Make It</span>
+                            <span>Pack It</span>
+                            <span>Place It</span>
+                        </span></h2>
+                    <p>Traditional soul, clinical precision.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-item">
+                        <i class="fa-solid fa-leaf"></i>
+                        <h4>Pure Ingredients</h4>
+                        <p>Only the finest urad dal and rice, sourced directly from organic farms.</p>
+                    </div>
+                    <div class="process-item">
+                        <i class="fa-solid fa-gear"></i>
+                        <h4>Stone Grinding</h4>
+                        <p>Traditional stone wet grinders used for the perfect porous texture.</p>
+                    </div>
+                    <div class="process-item">
+                        <i class="fa-solid fa-box"></i>
+                        <h4>Secure Packaging</h4>
+                        <p>Vacuum-sealed packaging to ensure freshness reaches your kitchen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem;">
+                <div>
+                    <h3 class="logo">HESHA</h3>
+                    <p>Elevating Traditional South Indian Breakfast Staples With Modern Hygiene And Premium Quality
+                        Since 2025.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="recipes.html">Recipes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a
+                                href="https://youtube.com/playlist?list=PLnVs4jmXLzHNz-UHF-66CwO5YtmdfJBPj&si=cJKlGyLuTCYO6b1y">Chef's
+                                Stories</a></li>
+                        <li><a
+                                href="https://www.google.com/search?q=Cooking+Classes&oq=Cooking+Classes&gs_lcrp=EgZjaHJvbWUyEggAEEUYORiDARixAxjJAxiABDINCAEQABiSAxiABBiKBTINCAIQABiSAxiABBiKBTIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiPAtIBBzk4MmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8">Cooking
+                                Classes</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-envelope"></i> <a
+                                href="mailto:jayakumarkathiraven@gmail.com">jayakumarkathiraven@gmail.com</a></li>
+                        <li><i class="fa-solid fa-phone"></i> <a href="tel:+919488530099">+91 94885 30099</a></li>
+                    </ul>
+                    <div class="footer-socials" style="margin-top: 1.5rem;">
+                        <a href="#" class="facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://youtube.com/@valluvan_thoughts?si=V2TVyJ8rAOXNV5lI" class="youtube"><i
+                                class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Hesha Premium Food Products. Crafted for Perfection.
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const words = document.querySelectorAll('.rotating-text-wrapper span');
+            let index = 0;
+
+            setInterval(() => {
+                const current = words[index];
+                current.classList.remove('active');
+                current.classList.add('exit');
+
+                index = (index + 1) % words.length;
+
+                const next = words[index];
+                next.classList.remove('exit');
+                next.classList.add('active');
+
+                // Clean up exit class after animation
+                setTimeout(() => {
+                    words.forEach((w, i) => {
+                        if (i !== index) w.classList.remove('exit');
+                    });
+                }, 800);
+            }, 2000);
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+
+</html>
